@@ -1,5 +1,5 @@
 {
-  "name": "vue-ssr-tech",
+  "name": "vue-ssr",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -22,7 +22,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/valleylmh/vue-ssr-tech.git"
+    "url": "https://github.com/sohucw/vue-ssr.git"
   },
   "dependencies": {
     "axios": "^0.18.0",
