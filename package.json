@@ -12,7 +12,7 @@
     "practice": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.config.practice.js",
     "lint": "eslint --ext .js --ext .jsx --ext .vue client/",
     "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue client/",
-    "precommit": "npm run lint",
+    "precommit": "npm run lint-fix",
     "dev:client": "cross-env NODE_ENV=development webpack-dev-server --inline --progress --config build/webpack.config.client.js",
     "dev:server": "nodemon server/server.js",
     "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
