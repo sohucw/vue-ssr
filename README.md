@@ -20,3 +20,5 @@ npm run build --report
 ```
 ### plugin
 1. husky  每次在提交代码的时候 执行  "precommit": "npm run lint-fix",
+
+### webapck 升级到了 "webpack": "^4.40.2",

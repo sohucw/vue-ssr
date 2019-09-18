@@ -7,4 +7,4 @@ import './assets/styles/global.styl'
 
 new Vue({
   render: (h) => h(App)
-}).$mount('#root' )
+}).$mount('#root')
