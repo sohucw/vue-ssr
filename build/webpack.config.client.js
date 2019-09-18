@@ -1,6 +1,8 @@
 const path = require('path')
 const HTMLPlugin = require('html-webpack-plugin')
-const ExtractPlugin = require('extract-text-webpack-plugin')
+// const ExtractPlugin = require('extract-text-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');//提取css到单独文件的插件
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');//压缩css插件
 const merge = require('webpack-merge')
 const webpack = require('webpack')
 const baseConfig = require('./webpack.config.base')
@@ -61,26 +63,25 @@ if (isDev) {
     },
     devServer,
     plugins: defaultPlugins.concat(
-      new webpack.HotModuleReplacementPlugin(),
-      new webpack.NoEmitOnErrorsPlugin()
+      new webpack.HotModuleReplacementPlugin()
+      // new webpack.NoEmitOnErrorsPlugin()
     )
   })
 } else {
   config = merge(baseConfig, {
     entry: {
-      app: path.join(__dirname, '../client/client-entry.js'),
-      vendor: ['vue']
+      app: path.join(__dirname, '../client/client-entry.js')
+      // vendor: ['vue']
     },
     output: {
-      filename: '[name].[chunkhash:8].js'
+      filename: 'js/[name].[chunkhash:8].js'
     },
     module: {
       rules: [
         {
           test: /\.styl/,
-          use: ExtractPlugin.extract({
-            fallback: 'vue-style-loader',
             use: [
+              MiniCssExtractPlugin.loader,
               'css-loader',
               {
                 loader: 'postcss-loader',
@@ -90,18 +91,28 @@ if (isDev) {
               },
               'stylus-loader'
             ]
-          })
-        }
+          }
       ]
     },
+    optimization: {
+      splitChunks: {
+        chunks: 'all'
+      },
+      runtimeChunk: true
+    },
     plugins: defaultPlugins.concat([
-      new ExtractPlugin('styles.[contentHash:8].css'),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'vendor'
+      new MiniCssExtractPlugin({
+        filename: 'css/[name].[chunkhash:8].css', ////都提到build目录下的css目录中
+        chunkFilename: "css/[name].[chunkhash:8].css"
       }),
-      new webpack.optimize.CommonsChunkPlugin({
-        name: 'runtime'
-      })
+      new OptimizeCssAssetsPlugin(),
+      // new ExtractPlugin('styles.[chunkhash:8].css'),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'vendor'
+      // }),
+      // new webpack.optimize.CommonsChunkPlugin({
+      //   name: 'runtime'
+      // })
     ])
   })
 }
