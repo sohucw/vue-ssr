@@ -32,7 +32,7 @@ app.use(async (ctx, next) => {
     if (isDev) {
       ctx.body = err.message
     } else {
-      ctx.bosy = 'please try again later'
+      ctx.body = 'please try again later'
     }
   }
 })

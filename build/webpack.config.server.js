@@ -30,7 +30,7 @@ config = merge(baseConfig, {
     filename: 'server-entry.js',
     path: path.join(__dirname, '../server-build')
   },
-  externals: Object.keys(require('../package.json').dependencies),
+  externals: Object.keys(require('../package.json').dependencies), // 不打包这部分的文件
   module: {
     rules: [
       {
