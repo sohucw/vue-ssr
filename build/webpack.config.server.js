@@ -24,7 +24,7 @@ if (isDev) {
 config = merge(baseConfig, {
   target: 'node',
   entry: path.join(__dirname, '../client/server-entry.js'),
-  devtool: 'source-map',
+  // devtool: 'source-map',
   output: {
     libraryTarget: 'commonjs2', // module.exports = 这种的模块定义 详情查看 https://www.webpackjs.com/configuration/
     filename: 'server-entry.js',
