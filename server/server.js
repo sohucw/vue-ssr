@@ -2,22 +2,22 @@ const Koa = require('koa')
 const send = require('koa-send')
 const path = require('path')
 const koaBody = require('koa-body')
-const koaSession = require('koa-session')
+const koaSession = require('koa-session') // 用户登陆用的
 
 const staticRouter = require('./routers/static')
 const apiRouter = require('./routers/api')
 const userRouter = require('./routers/user')
+// 处理db的 请求的url
 const createDb = require('./db/db')
 const config = require('../app.config')
-
 const db = createDb(config.db.appId, config.db.appKey)
 
 const app = new Koa()
 
-app.keys = ['vue ssr tech']
+app.keys = ['vue ssr']
 app.use(koaSession({
   key: 'v-ssr-id',
-  maxAge: 2 * 60 * 60 * 1000
+  maxAge: 2 * 60 * 60 * 1000 // 过期时间
 }, app))
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -37,6 +37,7 @@ app.use(async (ctx, next) => {
   }
 })
 
+// 写了个中间件专门处理db（请求的url）
 app.use(async (ctx, next) => {
   ctx.db = db
   await next()
@@ -50,7 +51,7 @@ app.use(async (ctx, next) => {
   }
 })
 
-app.use(koaBody())
+app.use(koaBody()) // 处理ctx.body中的数据
 app.use(userRouter.routes()).use(userRouter.allowedMethods())
 app.use(staticRouter.routes()).use(staticRouter.allowedMethods())
 app.use(apiRouter.routes()).use(apiRouter.allowedMethods())

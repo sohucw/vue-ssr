@@ -1,5 +1,5 @@
 // import model from 'model'
-import model from '../../model/client-model'
+import model from '../../service/client-model'
 import notify from '../../components/Notification/function' // eslint-disable-line
 import bus from '../../util/bus'
 

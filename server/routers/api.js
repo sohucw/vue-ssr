@@ -14,6 +14,15 @@ const successResponse = (data) => {
   }
 }
 
+const validateUser = async (ctx, next) => {
+  if (!ctx.session.user) {
+    ctx.status = 401
+    ctx.body = 'need login'
+  } else {
+    await next()
+  }
+}
+apiRouter.use(validateUser)
 apiRouter
   .get('/todos', async (ctx) => {
     const todos = await ctx.db.getAllTodos()

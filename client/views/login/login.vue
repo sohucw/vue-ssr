@@ -14,7 +14,7 @@
       type="password"
       class="login-input"
       placeholder="Password"
-      autocomplete="new-password"
+      autocomplete="new-password"   
       v-model="password"
     >
     <button type="submit" class="login-btn">登 录</button>
@@ -87,7 +87,7 @@ export default {
   line-height 30px
   margin-bottom 20px
   border 1px solid #aaa
-  width 100%
+  width 90%
   border-radius 0
   box-shadow 0 0 0
 .login-btn

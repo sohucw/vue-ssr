@@ -1,6 +1,11 @@
 import axios from 'axios'
-import { createError } from './util'
 
+const createError = (code, msg) => {
+  const err = new Error(msg)
+  err.code = code
+  err.msg = msg
+  return err
+}
 const request = axios.create({
   baseURL: '/'
 })

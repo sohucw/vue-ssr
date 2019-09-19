@@ -3,7 +3,7 @@ import '../assets/styles/footer.styl'
 export default {
   data () {
     return {
-      author: 'Valley'
+      author: 'cjw'
     }
   },
   render () {

@@ -6,7 +6,6 @@ module.exports = async (ctx, renderer, template, bundle) => {
   const context = { url: ctx.path }
 
   try {
-    // const appString = await renderer.renderToString(context)
     const app = await bundle(context)
     const appString = await renderer.renderToString(app, context)
     const {

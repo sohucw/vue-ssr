@@ -1,10 +1,10 @@
 <template>
   <header class="main-header">
-    <h1>JTodo</h1>
+    <h1>vue-ssr demo =>Todo</h1>
   </header>
 </template>
 
-<style lang="stylus" scoped module>
+<style lang="stylus" scoped>
 .main-header{
   text-align center
   h1{

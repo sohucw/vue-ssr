@@ -1,12 +1,12 @@
 module.exports = {
   db: {
-    appId: 'A6901025542611',
-    appKey: 'B1676B74-3634-695D-5B97-F8418CAC92E6'
+    appId: 'A6013311679488',
+    appKey: '91BE0ABE-DEB5-E823-0495-6D4357A9A9CA'
   },
   cdn: {
     host: 'http://pgvl2iiz4.bkt.clouddn.com/',
-    bucket: 'vue-study-ssr',
-    ak: 'JnQNY85L-8aQf9XBoOUfVjohvvVxYt33QxHsDskT',
-    sk: 'BLVt6YBR0fzpOJh8HtPt5aNi4fsvjnTh-EeXJ_Bf'
+    bucket: 'vue-ssr-cjw',
+    ak: 'CwI6Mp6y8ndRtA1wchvBHdw1UVcrO9JI02lWsTHj', // 用自己在七牛申请的
+    sk: 'R2UuTY0-qmrbxC3-QKfri3_2Mp7yfwE4ksX2gu2A'
   }
 }

@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "upload": "node build/upload.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:client": "cross-env NODE_ENV=production webpack --config build/webpack.config.client.js",
     "build:server": "cross-env NODE_ENV=production webpack --config build/webpack.config.server.js",
@@ -68,7 +69,7 @@
     "memory-fs": "^0.4.1",
     "nodemon": "^1.14.12",
     "postcss-loader": "2.0.9",
-    "qiniu": "^7.1.2",
+    "qiniu": "^7.2.2",
     "rimraf": "^2.6.2",
     "style-loader": "^0.23.1",
     "stylus": "^0.54.5",
