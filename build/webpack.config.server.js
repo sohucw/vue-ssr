@@ -7,7 +7,7 @@ const VueServerPlugin = require('vue-server-renderer/server-plugin')
 
 let config
 
-const isDev = process.env.NODE_ENV === 'development'
+// const isDev = process.env.NODE_ENV === 'development'
 
 const plugins = [
   new ExtractPlugin('styles.[contentHash:8].css'),
@@ -16,11 +16,10 @@ const plugins = [
     'process.env.VUE_ENV': '"server"'
   })
 ]
+// if (isDev) {
+// }
 
-if (isDev) {
-  plugins.push(new VueServerPlugin())
-}
-
+plugins.push(new VueServerPlugin())
 config = merge(baseConfig, {
   target: 'node',
   entry: path.join(__dirname, '../client/server-entry.js'),
@@ -54,10 +53,10 @@ config = merge(baseConfig, {
   plugins
 })
 
-config.resolve = {
-  alias: {
-    'model': path.join(__dirname, '../client/model/server-model.js')
-  }
-}
+// config.resolve = {
+//   alias: {
+//     'model': path.join(__dirname, '../client/service/server-model.js')
+//   }
+// }
 
 module.exports = config

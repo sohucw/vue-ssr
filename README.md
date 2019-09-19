@@ -54,3 +54,8 @@ https://portal.qiniu.com/bucket  七牛 cdn static部署
     >
 
 autocomplete="new-password" 处理自动填充的问题
+
+
+### 服务端打包 优化
+修改了webpack.config.server.js
+plugins.push(new VueServerPlugin())  默认是在dev环境 错误的配置
