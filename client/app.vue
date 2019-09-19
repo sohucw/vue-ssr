@@ -29,6 +29,23 @@
     </transition>
     <!-- <button @click="notify">click me1</button> -->
     <!-- <notification content="test notify" /> -->
+
+  <div class="tab-container">
+      <tabs :value="tabValue" @change="handleChangeTab">
+            <tab label="tab1" index="1">
+              <span>tab content 1</span>
+            </tab>
+            <tab index="2">
+              <span slot="label" style="color:red">tab2</span>
+              <span>tab content 2</span>
+            </tab>
+            <tab label="tab3" index="3">
+              <span>tab content 3</span>
+            </tab>
+        </tabs>
+  </div>
+
+
     <Footer></Footer>
   </div>
 </template>
@@ -49,7 +66,7 @@ console.log(Header.__docs)
 
 export default {
   metaInfo: {
-    title: 'Jokcy\'s Todo App'
+    title: 'sohucw\'s Todo App'
   },
   components: {
     Header,
@@ -67,6 +84,9 @@ export default {
         content: 'test $notify',
         btn: 'close'
       })
+    },
+    handleChangeTab (index) {
+      this.tabValue = index
     }
   },
   computed: {
@@ -83,6 +103,11 @@ export default {
     // fullName () {
     //   return this.$store.getters.fullName
     // }
+  },
+  data () {
+    return {
+      tabValue: '1'
+    }
   }
 }
 </script>
@@ -117,6 +142,9 @@ export default {
   align-items center
   justify-content center
 }
+.tab-container
+  background-color #fff
+  padding 0 15px
 </style>
 
 

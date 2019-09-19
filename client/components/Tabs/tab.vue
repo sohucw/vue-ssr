@@ -8,6 +8,7 @@ export default {
   mounted () {
     this.$parent.panes.push(this)
   },
+  // inject: ['value'], 和tabs里面的provide对应 通过 this.value获取
   computed: {
     active () {
       return this.$parent.value === this.index
@@ -24,8 +25,10 @@ export default {
       tab: true,
       active: this.active
     }
+    //  {this.$slots.default}
     return (
-      <li class={classNames} on-click={this.handleClick}>{tab}</li>
+      <li class={classNames} on-click={this.handleClick}>{tab}
+      </li>
     )
   }
 }

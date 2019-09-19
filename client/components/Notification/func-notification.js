@@ -2,6 +2,14 @@ import Notification from './notification.vue'
 
 export default {
   extends: Notification,
+  data () {
+    return {
+      visible: false,
+      verticalOffset: 20,
+      height: 0,
+      autoClose: 1000
+    }
+  },
   computed: {
     style () {
       return {
@@ -28,12 +36,7 @@ export default {
       this.height = this.$el.offsetHeight
     }
   },
-  data () {
-    return {
-      visible: false,
-      verticalOffset: 20,
-      height: 0,
-      autoClose: 1000
-    }
+  beforeDestory () {
+    this.clearTimer()
   }
 }

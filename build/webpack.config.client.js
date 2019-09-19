@@ -27,6 +27,7 @@ const devServer = {
   historyApiFallback: {
     index: '/public/index.html'
   },
+  headers: {'Access-Control-Allow-Origin': '*'},
   proxy: {
     '/api': 'http://127.0.0.1:3333',
     '/user': 'http://127.0.0.1:3333'
@@ -72,7 +73,8 @@ if (isDev) {
       vendor: ['vue']
     },
     output: {
-      filename: '[name].[chunkhash:8].js'
+      filename: '[name].[chunkhash:8].js',
+      publicPath: '/public/'
     },
     module: {
       rules: [

@@ -18,7 +18,7 @@
 export default {
   name: 'Notification',
   props: {
-    content: {type: String, default: 'content'},
+    content: {type: String, required: true, default: 'content'},
     btn: {type: String, default: '关闭'}
   },
   computed: {

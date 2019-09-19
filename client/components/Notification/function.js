@@ -18,7 +18,7 @@ const removeInstance = instance => {
 }
 
 const notify = (options = {}) => {
-  if (Vue.prototype.$isServer) return
+  if (Vue.prototype.$isServer) return // 服务端不可以
   const {
     autoClose,
     ...rest
@@ -32,9 +32,9 @@ const notify = (options = {}) => {
     }
   })
   instance.id = `notification_${seed++}`
-  instance.vm = instance.$mount()
-  document.body.appendChild(instance.vm.$el)
-  instance.vm.visible = true
+  instance.vm = instance.$mount() // 生成了dom
+  document.body.appendChild(instance.vm.$el) // 放入body中
+  instance.vm.visible = true // 默认是false的 插入后需要显示出来 变成true
 
   let verticalOffset = 0
   notificationPool.forEach(item => {
@@ -43,6 +43,7 @@ const notify = (options = {}) => {
   verticalOffset += 16
   instance.verticalOffset = verticalOffset
   notificationPool.push(instance) // 放入内存中
+
   instance.vm.$on('closed', () => {
     removeInstance(instance)
     document.body.removeChild(instance.vm.$el)

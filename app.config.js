@@ -5,7 +5,7 @@ module.exports = {
   },
   cdn: {
     host: 'http://pgvl2iiz4.bkt.clouddn.com/',
-    bucket: 'vue-study',
+    bucket: 'vue-study-ssr',
     ak: 'JnQNY85L-8aQf9XBoOUfVjohvvVxYt33QxHsDskT',
     sk: 'BLVt6YBR0fzpOJh8HtPt5aNi4fsvjnTh-EeXJ_Bf'
   }

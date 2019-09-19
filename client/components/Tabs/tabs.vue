@@ -2,6 +2,11 @@
 import TabContainer from './tabContainer.vue'
 export default {
   name: 'Tabs',
+  // provide () {
+  //   return {
+  //     value: this.value   这个里面的value 不是reactive
+  //   }
+  // },
   props: {
     value: {
       type: [String, Number],

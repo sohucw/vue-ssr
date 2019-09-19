@@ -19,4 +19,10 @@ npm run build
 npm run build --report
 ```
 ### plugin
+
 1. husky  每次在提交代码的时候 执行  "precommit": "npm run lint-fix",
+2. concurrently 一次性启动多个服务  "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+3.  vue-meta  放服务端渲染的meta信息
+
+### 插件网站
+https://www.apicloud.com/signup  可以申请一些免费的

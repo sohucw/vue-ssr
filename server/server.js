@@ -41,7 +41,7 @@ app.use(async (ctx, next) => {
   ctx.db = db
   await next()
 })
-
+// 处理favicon.ico
 app.use(async (ctx, next) => {
   if (ctx.path === '/favicon.ico') {
     await send(ctx, '/favicon.ico', { root: path.join(__dirname, '../') })
@@ -63,6 +63,7 @@ if (isDev) {
   // pageRouter = require('./routers/ssr')
   pageRouter = require('./routers/ssr-no-bundle')
 }
+// koa的api
 app.use(pageRouter.routes()).use(pageRouter.allowedMethods())
 
 const HOST = process.env.HOST || '0.0.0.0'
