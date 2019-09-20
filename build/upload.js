@@ -39,7 +39,8 @@ const publicPath = path.join(__dirname, '../public')
 
 // publicPath /resource/client/....
 const uploadAll = (dir, prefix) => {
-  const files = fs.readFileSync(dir)
+  const files = fs.readdirSync(dir)
+
   files.forEach(file => {
     const filePath = path.join(dir, file)
     const key = prefix ? `${prefix}/${file}` : file
@@ -47,8 +48,8 @@ const uploadAll = (dir, prefix) => {
       return uploadAll(filePath, key)
     }
     doUpload(file, filePath)
-      .then(resp => console.log(resp))
-      .catch(err => console.log(err))
+    // .then(resp => console.log(resp))
+    // .catch(err => console.log(err))
   })
 }
 
