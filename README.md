@@ -1,4 +1,4 @@
-# vue-ssr-tech
+# vue-ssr-ssr
 
 ## Build Setup
 
@@ -15,8 +15,6 @@ npm run dev:server
 # build for production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
 ```
 ### plugin
 
