@@ -15,6 +15,7 @@ import './assets/styles/global.styl'
 
 Vue.use(VueRouter)
 Vue.use(Vuex)
+
 Vue.use(Meta)
 // 注册全局组件
 Vue.use(Notification) // 且注册了全局的方法 $notify
