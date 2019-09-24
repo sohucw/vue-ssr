@@ -30,7 +30,6 @@ const obj = (appId, appKey) => {
     return {
       'x-APICloud-AppId': appId,
       'X-APICloud-AppKey': `${sha1(`${appId}UZ${appKey}UZ${now}`)}.${now}`
-      // 'X-APICloud-AppKey': `${sha1(`${appKey}`)}`
     }
   }
   return {
@@ -68,5 +67,4 @@ const obj = (appId, appKey) => {
     }
   }
 }
-// obj(config.db.appId, config.db.appKey).deleteCompleted()
 module.exports = obj
